@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { register, login, user_profile, user_update, logout } = require('../controller/user')
+const { register, login, user_profile, user_update, logout, getUserForSidebar } = require('../controller/user')
 const featchuser = require('../middleware/featchuser');
 
 
@@ -12,5 +12,7 @@ router.get("/getuser", featchuser, user_profile);
 router.put("/edit_user", featchuser, user_update);
 
 router.post("/logout", featchuser, logout);
+
+router.get("/all_users", featchuser, getUserForSidebar);
 
 module.exports = router;

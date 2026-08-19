@@ -159,4 +159,19 @@ const user_update = async (req, res) => {
 };
 
 
-module.exports = { register, login, user_profile, user_update, logout };
+// Login required
+const getUserForSidebar = async (req, res) => {
+    try {
+        const users = await User.find().select("-password");
+
+        res.status(200).json(users);
+    }
+    catch (error) {
+        res.status(500).json({
+            message: "error occured while fetching users",
+            error: error.message
+        });
+    }
+};
+
+module.exports = { register, login, user_profile, user_update, logout, getUserForSidebar };
