@@ -39,8 +39,7 @@ const get_friends = async (req, res) => {
     try {
         const userId = req.user.id;
 
-        const friends = await FriendModel.find({ userId })
-            .populate("friendId", "-password");
+        const friends = await FriendModel.find({ userId }).populate("friendId", "-password");
 
         res.status(200).json(friends);
     }

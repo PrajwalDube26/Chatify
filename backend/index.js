@@ -41,4 +41,4 @@ app.use("/api/message", message_router);
 
 app.listen(port, () => {
     console.log(`connected to port ${port}`)
-});
+})

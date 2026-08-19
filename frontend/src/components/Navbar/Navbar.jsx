@@ -26,10 +26,10 @@ const Navbar = () => {
                 {isloggedin ? (
                     <>
                         <Link
-                            to="/"
-                            className={`user-nav-btn ${location.pathname === "/" ? "active" : ""}`}
+                            to="/allusers"
+                            className={`user-nav-btn ${location.pathname === "/allusers" ? "active" : ""}`}
                         >
-                            🏠 Home
+                            🌐 Other User
                         </Link>
                         <Link
                             to="/friends"

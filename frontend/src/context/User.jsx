@@ -12,6 +12,8 @@ export const UserProvider = ({ children }) => {
     phone: "",
     location: ""
   });
+  const [all_users, setall_users] = useState([]);
+  const [particular_user, setparticular_user] = useState({});
 
   const checkislogin = async () => {
     try {
@@ -187,6 +189,47 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  // Get All Users (/api/auth/all_users)
+  const getAllUsers = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/all_users`, {
+        method: "GET",
+        credentials: "include",
+      });
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        return;
+      }
+
+      setall_users(json);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Get Particular User (/api/auth/particular_user/:id)
+  const getParticularUser = async (id) => {
+    try {
+      const response = await fetch(`${BASE_URL}/particular_user/${id}`, {
+        method: "GET",
+        credentials: "include",
+      });
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        return;
+      }
+
+      setparticular_user(json);
+      return json;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -195,10 +238,18 @@ export const UserProvider = ({ children }) => {
         Logout,
         getUser,
         updateUser,
+        getAllUsers,
+        getParticularUser,
+
         isloggedin,
         setisloggedin,
         user_detail,
         setuser_detail,
+        all_users,
+        setall_users,
+        particular_user,
+        setparticular_user,
+
         checkislogin,
       }}
     >
