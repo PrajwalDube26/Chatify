@@ -4,10 +4,9 @@ import { UserContext } from "../../context/User";
 import "./Navbar.css";
 
 const Navbar = () => {
-    const { Logout } = useContext(UserContext);
+    const { isloggedin, Logout } = useContext(UserContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const isloggedin = 1;
 
     const handleLogout = async () => {
         const success = await Logout();
