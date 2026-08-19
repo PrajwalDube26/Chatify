@@ -33,7 +33,7 @@ const Navbar = () => {
                         </Link>
                         <Link
                             to="/friends"
-                            className={`user-nav-btn ${location.pathname === "/friends" ? "active" : ""}`}
+                            className={`user-nav-btn ${location.pathname === "/friends" || location.pathname === "/getfriends" || location.pathname === "/get_friends" ? "active" : ""}`}
                         >
                             👥 Friends
                         </Link>
