@@ -1,6 +1,6 @@
-import { UserProvider, useUser, UserContext } from './User';
-import { FriendProvider, useFriend, FriendContext } from './Friend';
-import { MessageProvider, useMessage, MessageContext } from './Message';
+import { UserProvider } from './User';
+import { FriendProvider } from './Friend';
+import { MessageProvider } from './Message';
 
 export const AppProvider = ({ children }) => {
     return (
